@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="license-plate.html">
+
+<dom-module id="license-plates">
+    <template>
+        <style>
+            display: inline-block;
+        </style>
+        Hello, World
+        <iron-ajax
+            auto
+            url="/pending_licenses"
+            handle-as="json"
+            last-response="{{plates}}"
+            debounce-duration="300">
+        </iron-ajax>
+        <template is="dom-repeat" items="{{plates}}">
+            <license-plate plate="{{item}}"></license-plate>
+        </template>
+
+    </template>
+    <script>
+        Polymer({
+          /* this is the element's prototype */
+          is: 'license-plates'
+        });
+    </script>
+</dom-module>

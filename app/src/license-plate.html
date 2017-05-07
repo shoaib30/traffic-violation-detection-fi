@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<dom-module id="license-plate">
+    <template>
+        <style>
+            display: inline-block;
+            .license_image {
+                height: 200px;
+                weight: 200px;
+            }
+        </style>
+        <img src="images/{{plate.file}}" class="license_image" />
+        <form is="iron-form" action="/post_license">
+            Licesnse Number: <input type="text" name="number">
+            <input type="hidden" name="id" value="{{plate.id}}">
+            <input type="hidden" name="time" value="{{plate.time}}">
+            <input type="submit" value="save">
+        </form>
+    </template>
+    <script>
+        Polymer({
+          /* this is the element's prototype */
+          is: 'license-plate',
+          properties: {
+              plate: Object
+          }
+        });
+    </script>
+</dom-module>
