@@ -23,7 +23,7 @@ module.exports = function(app) {
     app.get("/post_license", function(req, res) {
         console.log("License posted: "  + req.query.number);
         db.run("DELETE FROM violation WHERE id=" + req.query.id);
-        request.get('http://localhost:3000/send_failed_image?time=' + req.query.time + "&number=" + req.query.number);
+        request.get('http://localhost:3000/api/camera/send_failed_image?time=' + req.query.time + "&number=" + req.query.number);
     })
 
     app.get("/pending_licenses", function(req, res) {

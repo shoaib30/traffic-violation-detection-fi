@@ -9,7 +9,7 @@
                 weight: 200px;
             }
         </style>
-        <img src="images/{{plate.file}}" class="license_image" />
+        <img src="{{plate.file}}" class="license_image" />
         <form is="iron-form" action="/post_license">
             Licesnse Number: <input type="text" name="number">
             <input type="hidden" name="id" value="{{plate.id}}">
